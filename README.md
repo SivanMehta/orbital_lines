@@ -3,7 +3,7 @@
 ### Why did you make this?
 Inspired by [this](http://www.reddit.com/r/woahdude/comments/3dpp3l/8_earth_years_are_roughly_equal_to_13_venus_years/) /r/woahdude post, I just wanted to see if I could reproduce the same results.
 
-This particular instance has Earth and Venus orbiting a body with a very loose approximation of their orbits. For 13 venus years, there are 8 earth years, so the animation has been speed up so you can see the entirety of the generation in ~45 seconds, rather than 104 years.
+This particular instance has Earth and Venus orbiting a body with a very loose approximation of their orbits. For 13 venus years, there are 8 earth years, so the animation has been sped up so you can see the entirety of the generation in ~45 seconds, rather than 104 years (timing obviously depends on the hardware that you're running this on)
 
 I have also included a .png file in case you don't want to run the whole thing. I whipped this together in about an hour, so I just used python2 to write it
 ```
