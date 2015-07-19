@@ -30,12 +30,12 @@ class Animation():
         self.canvas = Canvas(root, height = 500, width = 500)
         self.canvas.pack()
 
-        self.canvas.create_oval(150, 150, 350, 350)
-        self.venus = Planet(250, 350, self.canvas, "red")
-        
-        self.canvas.create_oval(100, 100, 400, 400)
-        self.earth = Planet(250, 100, self.canvas, "green")
+        self.canvas.create_rectangle(0, 0, 500, 500, fill = "#0D4566", outline = "#0D4566") # space
+        self.canvas.create_oval(150, 150, 350, 350, outline = "white") # venus orbit
+        self.canvas.create_oval(100, 100, 400, 400, outline = "white") # earth orbit
 
+        self.venus = Planet(250, 350, self.canvas, "red")
+        self.earth = Planet(250, 100, self.canvas, "green")
         self.sun = Planet(250, 250, self.canvas, "yellow")
 
         # self.canvas.create_oval()
