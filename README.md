@@ -18,3 +18,4 @@ Done after 44.74 seconds!
 ```
 ### What does the final product look like?
 Like [this](https://raw.githubusercontent.com/SivanMehta/orbital_lines/master/finished.png)
+![](https://raw.githubusercontent.com/SivanMehta/orbital_lines/master/finished.png)
