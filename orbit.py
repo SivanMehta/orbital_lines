@@ -44,7 +44,7 @@ class Animation():
         root.mainloop()
 
     def rotate_earth(self):
-        theta = math.degrees(math.pi/3600*1.0)
+        theta = math.degrees(math.pi/36000*8.0)
 
         x = self.earth.x - 250
         y = self.earth.y - 250
@@ -59,7 +59,7 @@ class Animation():
         self.canvas.update()
 
     def rotate_venus(self):
-        theta = math.degrees(math.pi/3600*1.0)
+        theta = math.degrees(math.pi/36000*5.0)
 
         x = self.venus.x - 250
         y = self.venus.y - 250
