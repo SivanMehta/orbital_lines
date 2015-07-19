@@ -31,20 +31,17 @@ class Animation():
         self.canvas.pack()
 
         self.canvas.create_rectangle(0, 0, 500, 500, fill = "#0D4566", outline = "#0D4566") # space
-        self.canvas.create_oval(150, 150, 350, 350, outline = "white") # venus orbit
-        self.canvas.create_oval(100, 100, 400, 400, outline = "white") # earth orbit
-
         self.venus = Planet(250, 150, self.canvas, "red")
         self.earth = Planet(250, 100, self.canvas, "green")
         self.sun = Planet(250, 250, self.canvas, "yellow")
 
         self.ticks = 0
-
+        self.done = False
         self.timer()
         root.mainloop()
 
     def rotate_earth(self):
-        theta = math.degrees(math.pi/36000*5.0)
+        theta = math.degrees(math.pi/36000*8.0)
 
         x = self.earth.x - 250
         y = self.earth.y - 250
@@ -59,7 +56,7 @@ class Animation():
         self.canvas.update()
 
     def rotate_venus(self):
-        theta = math.degrees(math.pi/36000*8.0)
+        theta = math.degrees(math.pi/36000*5.0)
 
         x = self.venus.x - 250
         y = self.venus.y - 250
@@ -74,12 +71,19 @@ class Animation():
         self.canvas.update()
 
     def timer(self):
-        self.ticks += 1
-        # print self.ticks
-
+        if self.done:
+            print "Done!"
+            return
         self.rotate_earth()
         self.rotate_venus()
-        self.canvas.after(10, self.timer)
+
+        self.ticks += 1
+        if self.ticks % 2 == 0:
+            self.canvas.create_line(self.earth.x, self.earth.y, self.venus.x, self.venus.y, fill = "white")
+        if self.ticks > 1250:
+            self.done = True
+
+        self.canvas.after(5, self.timer)
 
 
 Animation()
