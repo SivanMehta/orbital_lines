@@ -34,17 +34,17 @@ class Animation():
         self.canvas.create_oval(150, 150, 350, 350, outline = "white") # venus orbit
         self.canvas.create_oval(100, 100, 400, 400, outline = "white") # earth orbit
 
-        self.venus = Planet(250, 350, self.canvas, "red")
+        self.venus = Planet(250, 150, self.canvas, "red")
         self.earth = Planet(250, 100, self.canvas, "green")
         self.sun = Planet(250, 250, self.canvas, "yellow")
 
-        # self.canvas.create_oval()
+        self.ticks = 0
 
         self.timer()
         root.mainloop()
 
     def rotate_earth(self):
-        theta = math.degrees(math.pi/36000*8.0)
+        theta = math.degrees(math.pi/36000*5.0)
 
         x = self.earth.x - 250
         y = self.earth.y - 250
@@ -59,7 +59,7 @@ class Animation():
         self.canvas.update()
 
     def rotate_venus(self):
-        theta = math.degrees(math.pi/36000*5.0)
+        theta = math.degrees(math.pi/36000*8.0)
 
         x = self.venus.x - 250
         y = self.venus.y - 250
@@ -74,6 +74,9 @@ class Animation():
         self.canvas.update()
 
     def timer(self):
+        self.ticks += 1
+        # print self.ticks
+
         self.rotate_earth()
         self.rotate_venus()
         self.canvas.after(10, self.timer)
