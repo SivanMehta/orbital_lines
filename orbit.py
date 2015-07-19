@@ -1,5 +1,5 @@
 from Tkinter import Tk, Canvas
-import math
+import math, time
 
 class Planet():
     def __init__(self, x, y, space, color):
@@ -35,6 +35,7 @@ class Animation():
         self.earth = Planet(250, 100, self.canvas, "green")
         self.sun = Planet(250, 250, self.canvas, "yellow")
 
+        self.start = time.time()
         self.ticks = 0
         self.done = False
         self.timer()
@@ -72,7 +73,7 @@ class Animation():
 
     def timer(self):
         if self.done:
-            print "Done!"
+            print "Done after %2.2f seconds!" % (time.time() - self.start)
             return
         self.rotate_earth()
         self.rotate_venus()
