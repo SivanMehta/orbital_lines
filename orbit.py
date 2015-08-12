@@ -41,33 +41,18 @@ class Animation():
         self.timer()
         root.mainloop()
 
-    def rotate_earth(self):
-        theta = math.degrees(math.pi/36000*13.0)
+    def rotate_body(self, body, amount):
+        theta = math.degrees(amount)
 
-        x = self.earth.x - 250
-        y = self.earth.y - 250
-
-        x, y = x * math.cos(theta) - y * math.sin(theta), x * math.sin(theta) + y * math.cos(theta)
-
-        x += 250
-        y += 250
-
-        self.earth.move_to(x, y)
-
-        self.canvas.update()
-
-    def rotate_venus(self):
-        theta = math.degrees(math.pi/36000*8.0)
-
-        x = self.venus.x - 250
-        y = self.venus.y - 250
+        x = body.x - 250
+        y = body.y - 250
 
         x, y = x * math.cos(theta) - y * math.sin(theta), x * math.sin(theta) + y * math.cos(theta)
 
         x += 250
         y += 250
 
-        self.venus.move_to(x, y)
+        body.move_to(x, y)
 
         self.canvas.update()
 
@@ -75,8 +60,8 @@ class Animation():
         if self.done:
             print "Done after %2.2f seconds!" % (time.time() - self.start)
             return
-        self.rotate_earth()
-        self.rotate_venus()
+        self.rotate_body(self.earth, math.pi/36000*13.0)
+        self.rotate_body(self.venus, math.pi/36000*8.0)
 
         self.ticks += 1
         if self.ticks % 2 == 0:
